@@ -7,7 +7,7 @@ site_key = ''  # site-key, read the 2captcha docs on how to get this
 url = 'http://somewebsite.com'  # example url
 proxy = '127.0.0.1:6969'  # example proxy
 
-proxy = {'http': 'http' + proxy, 'https': 'https' + proxy}
+proxy = {'http': 'http://' + proxy, 'https': 'https://' + proxy}
 
 s = requests.Session()
 
