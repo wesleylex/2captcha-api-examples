@@ -23,11 +23,11 @@ $language 	- 0 OR 1 OR 2
 2 = latin captcha
 
 usage examples:
-$text=recognize("/path/to/file/captcha.jpg","YOUR_KEY_HERE",true, "rucaptcha.com");
+$text=recognize("captcha.jpg","YOUR_KEY_HERE",true, "2captcha.com");
 
-$text=recognize("/path/to/file/captcha.jpg","YOUR_KEY_HERE",false, "rucaptcha.com");  
+$text=recognize("/path/to/file/captcha.jpg","YOUR_KEY_HERE",false, "2captcha.com");  
 
-$text=recognize("/path/to/file/captcha.jpg","YOUR_KEY_HERE",false, "rucaptcha.com",1,0,0,5);  
+$text=recognize("/path/to/file/captcha.jpg","YOUR_KEY_HERE",false, "2captcha.com",1,0,0,5);  
 
 */
 
@@ -37,7 +37,7 @@ function recognize(
             $filename,
             $apikey,
             $is_verbose = true,
-            $domain="rucaptcha.com",
+            $domain="2captcha.com",
             $rtimeout = 5,
             $mtimeout = 120,
             $is_phrase = 0,
@@ -56,7 +56,7 @@ function recognize(
     $postdata = array(
         'method'    => 'post', 
         'key'       => $apikey, 
-        'file'      => '@'.$filename,
+        'file'      => new CurlFile($filename, mime_content_type($filename), 'file'),
         'phrase'	=> $is_phrase,
         'regsense'	=> $is_regsense,
         'numeric'	=> $is_numeric,
