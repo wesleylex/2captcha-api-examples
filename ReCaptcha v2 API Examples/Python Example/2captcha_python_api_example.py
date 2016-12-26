@@ -2,7 +2,7 @@ import requests
 from time import sleep
 
 # Add these values
-API_KEY = ''  # You're 2captcha API KEY
+API_KEY = ''  # Your 2captcha API KEY
 site_key = ''  # site-key, read the 2captcha docs on how to get this
 url = 'http://somewebsite.com'  # example url
 proxy = '127.0.0.1:6969'  # example proxy
