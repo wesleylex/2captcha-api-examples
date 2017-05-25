@@ -20,7 +20,7 @@ TAG POS=1 TYPE=* ATTR=TXT:* EXTRACT=TXT
 SET captid EVAL("var s=\"{{!EXTRACT}}\"; s.split(' ')[0].split('|')[1]")
 SET !EXTRACT NULL
 URL GOTO= http://2captcha.com/res.php?key={{captcha_key}}&action=get&id={{captid}}
-WAIT SECONDS=30
+WAIT SECONDS=120
 'Wait until get captcha
 REFRESH
 TAG POS=1 TYPE=* ATTR=TXT:* EXTRACT=TXT
