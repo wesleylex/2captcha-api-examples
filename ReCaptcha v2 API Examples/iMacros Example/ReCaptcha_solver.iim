@@ -12,9 +12,11 @@ SET !TIMEOUT_PAGE 60
 TAG POS=1 TYPE=TEXTAREA FORM=ID:* ATTR=ID:g-recaptcha-response EXTRACT=TXT
 SET k {{!EXTRACT}}
 SET !EXTRACT NULL
+TAB T=1
+SET !VAR1 {{!URLCURRENT}}
 TAB OPEN
 TAB T=2
-URL GOTO=http://2captcha.com/in.php?key={{captcha_key}}&method=userrecaptcha&googlekey={{k}}&pageurl={{!URLCURRENT}}&soft_id=1606
+URL GOTO=http://2captcha.com/in.php?key={{captcha_key}}&method=userrecaptcha&googlekey={{k}}&pageurl={{!VAR1}}&soft_id=1606
 WAIT SECONDS=1
 TAG POS=1 TYPE=* ATTR=TXT:* EXTRACT=TXT
 SET captid EVAL("var s=\"{{!EXTRACT}}\"; s.split(' ')[0].split('|')[1]")
